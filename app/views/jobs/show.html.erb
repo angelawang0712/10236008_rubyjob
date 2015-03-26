@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Show Jobs</h1>
+<table class="table table-hover">
+      <thead>
+  	<tr>
+  		<th>Job Title</th>
+  		<th>Company Name</th>
+  		<th>URL</th>
+  		<th>Job Type</th>
+      <th>Occupation</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th>Apply Information</th>
+      <th>Deadline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td><%= @job.title %></td>
+  		<td><%= @job.company_name %></td>
+  		<td><%= @job.url %></td>
+  		<td><%= @job.job_type %></td>
+  		<td><%= @job.occupation %></td>
+  		<td><%= @job.location %></td>
+        <td><%= @job.description %></td>
+        <td><%= @job.apply_information %></td>
+        <td><%= @job.deadline %></td>
+      </tr>
+    </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_job_path(@job) ,class:'btn btn-warning btn-lg'%> |
+<%= link_to 'Back', jobs_path ,class:'btn btn-default btn-lg'%>

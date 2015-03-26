@@ -1,0 +1,48 @@
+<div class="form">
+<%= simple_form_for (@job) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= f.input :title ,label:"Job Title" %>
+    
+    <%= f.input :company_name ,label:"Company Name" %>
+    
+    <%= f.input :url ,label:"URL" %>
+    
+    <%= f.label :job_type %></br>
+    <%= f.collection_radio_buttons :job_type, [['full_time', 'Full-time'] ,['part_time', 'Part-time'],['contract ', 'Contract'],['internship ', 'Internship'],['other', 'Other']], :first, :last %>
+  	</br>
+  	<%= f.label :occupation %><br/>
+    <%= f.collection_radio_buttons :occupation, [['web_back_end', 'Web back-end'] ,['web_front-end', 'Web front-end'],['web_design ', 'Web-design'],['qa_testing  ', 'QA/Testing '],['other', 'Other']], :first, :last %>
+  	
+  	
+	  <%= f.input :location ,label:"Location" %>
+	  
+	  <%= f.input :description ,label:"Description" %>
+
+	  <%= f.input :apply_information ,label:"Apply Information" %>
+	  
+	  <%= f.label :deadline %></br>
+	  <%= f.date_select :deadline ,label:"Deadline", control_col: "col-sm-2" %>
+	
+
+	</div>
+
+
+  <div class="actions">
+    <%= f.submit "新增/更新" ,class:'btn btn-success btn-lg'%>
+  </div>
+<% end %>
+</div>
